@@ -35,7 +35,7 @@ def monitor_test(PCI: str, counters: list):
             r'{}:\s+(\d+)'.format(counter), result).group(1))
     return counter_values
 
-# def show_regs(regs:str):
+# def show_regs(NIC:str,regs:str):
 
 
 def run_test(config: dict, type: str):
@@ -88,6 +88,12 @@ def run_test(config: dict, type: str):
 
         print("HostA: bps: {} pps: {}".format(value_A["bps"], value_A["pps"]))
         print("HostB: bps: {} pps: {}".format(value_B["bps"], value_B["pps"]))
+
+        # todo: regs
+        # show_regs(config["hostA"]["NIC"],config["regs"])
+        # show_regs(config["hostB"]["NIC"],config["regs"])
+    
+    print("Test for {} done".format(cmd))
 
 def main():
     parser = argparse.ArgumentParser(description="Run Test")
